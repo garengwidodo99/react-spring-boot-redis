@@ -1,0 +1,29 @@
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/anteraja_db
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: update
+        naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+    database: mysql
+  cache:
+    type: redis
+    cache-names: PRICE
+    redis:
+      time-to-live: 5000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+# HTTP Server
+server:
+  port: 8080
+  servlet:
+    context-path: /api
